@@ -8,24 +8,4 @@ spec:
     targetPort: 80
   selector:
     app: guestbook-ui
-server:
-  ingress:
-    enabled: true
-    controller: aws
-    ingressClassName: alb
-    hosts:
-      - argocd-sre-dev.hearstnp.com
-    annotations:
-      kubernetes.io/ingress.class: alb
-      alb.ingress.kubernetes.io/load-balancer-name: guestbook-loadbalancer
-      alb.ingress.kubernetes.io/scheme: internet-facing
-      # alb.ingress.kubernetes.io/inbound-cidrs: 0.0.0.0/0
-      alb.ingress.kubernetes.io/target-type: ip
-      alb.ingress.kubernetes.io/backend-protocol: HTTPS
-      alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}, {"HTTPS":443}]'
-      alb.ingress.kubernetes.io/ssl-redirect: '443'
-      # https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html
-      alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-PQ-2025-09
-      alb.ingress.kubernetes.io/load-balancer-attributes: routing.http2.enabled=true
-      alb.ingress.kubernetes.io/subnets: subnet-03f3fef82ebdb3d59, subnet-0314c7b27ef077907
-
+  type: LoadBalancer
