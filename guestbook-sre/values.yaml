@@ -13,9 +13,14 @@ replicaCount: 1
 #  # Overrides the image tag whose default is the chart appVersion.
 #  tag: ""
 
+#image:
+#  repository: gcr.io/google-samples/gb-frontend
+#  tag: v5
+#  pullPolicy: IfNotPresent
+
 image:
-  repository: gcr.io/google-samples/gb-frontend
-  tag: v5
+  repository: 236910733144.dkr.ecr.us-west-2.amazonaws.com/hearst-newspapers/devops-infra
+  tag: latest
   pullPolicy: IfNotPresent
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
