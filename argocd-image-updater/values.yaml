@@ -25,3 +25,5 @@ serviceAccount:
   annotations: 
     eks.amazonaws.com/role-arn: arn:aws:iam::236910733144:role/sre-demo-dev-argocd-image-updater
 
+
+  
