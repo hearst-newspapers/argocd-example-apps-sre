@@ -8,7 +8,7 @@ config:
 #      credentials: ext:/scripts/login.sh
       credentials: 
         command: >-
-	  HOME=/tmp aws ecr --region us-east-1 get-authorization-token
+          HOME=/tmp aws ecr --region us-east-1 get-authorization-token
           --output text
           --query 'authorizationData[].authorizationToken'
           | base64 -d
