@@ -5,21 +5,21 @@ config:
       prefix: 236910733144.dkr.ecr.us-west-2.amazonaws.com
       ping: yes
       insecure: no
-#      credentials: ext:/scripts/login.sh
-      credentials: 
-        command: >-
-          HOME=/tmp aws ecr --region us-east-1 get-authorization-token
-          --output text
-          --query 'authorizationData[].authorizationToken'
-          | base64 -d
+      credentials: ext:/scripts/login.sh
+#      credentials: 
+#        command: >-
+#          HOME=/tmp aws ecr --region us-east-1 get-authorization-token
+#          --output text
+#          --query 'authorizationData[].authorizationToken'
+#          | base64 -d
       credsexpire: 6h
 
-#authScripts:
-#  enabled: true
-#  scripts:
-#      login.sh: |
-#        #!/bin/sh
-#        aws ecr --region "us-west-2" get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d
+authScripts:
+  enabled: true
+  scripts:
+      login.sh: |
+        #!/bin/sh
+        aws ecr --region "us-west-2" get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d
 
 serviceAccount:
   annotations: 
