@@ -22,8 +22,9 @@ authScripts:
         HOME=/tmp aws ecr --region "us-west-2" get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d
 
 serviceAccount:
+  create: true
   annotations: 
     eks.amazonaws.com/role-arn: arn:aws:iam::236910733144:role/sre-demo-dev-argocd-image-updater
-
+  name: argocd-image-updater
 
   
