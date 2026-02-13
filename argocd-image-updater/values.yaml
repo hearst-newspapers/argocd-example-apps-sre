@@ -3,6 +3,7 @@ config:
     - name: ECR
       api_url: https://236910733144.dkr.ecr.us-west-2.amazonaws.com
       prefix: 236910733144.dkr.ecr.us-west-2.amazonaws.com
+      default: true
       ping: yes
       insecure: no
       credentials: ext:/scripts/login.sh
