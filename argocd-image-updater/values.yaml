@@ -12,7 +12,7 @@ config:
 #          --output text
 #          --query 'authorizationData[].authorizationToken'
 #          | base64 -d
-      credsexpire: 7h
+      credsexpire: 6h
 
 authScripts:
   enabled: true
