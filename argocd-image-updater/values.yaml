@@ -19,7 +19,7 @@ authScripts:
   scripts:
       login.sh: |
         #!/bin/sh
-        aws ecr --region "us-west-2" get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d
+        HOME=/tmp aws ecr --region "us-west-2" get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d
 
 serviceAccount:
   annotations: 
