@@ -1,19 +1,16 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
+# argocd-example-apps-sre/image-updater-cr.yaml
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
 metadata:
-  name: image-updater-crs
+  name: devops-infra-updater
   namespace: argocd
 spec:
-  project: default
-  source:
-    repoURL: git@github.com:hearst-newspapers/argocd-example-apps-sre.git
-    targetRevision: HEAD
-    path: image-updater-crs
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: argocd
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  application:
+    name: argocd-image-updater  # The ArgoCD Application name that deploys your app
+  images:
+    - name: 236910733144.dkr.ecr.us-west-2.amazonaws.com/hearst-newspapers/devops-infra
+      updateStrategy:
+        type: latest
+      registryRef:
+        name: ecr-registry
 
