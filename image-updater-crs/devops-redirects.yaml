@@ -11,4 +11,9 @@ spec:
         - alias: "devops-infra"
           imageName: "236910733144.dkr.ecr.us-west-2.amazonaws.com/hearst-newspapers/devops-infra:latest-3"
           commonUpdateSettings:
-            updateStrategy: "newest-build"
+            updateStrategy: "digest"
+            #updateStrategy: "newest-build"
+	  manifestTargets:
+	    helm:
+	      name: "image.repository"
+	      tag: "image.tag"
