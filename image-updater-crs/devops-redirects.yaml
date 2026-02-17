@@ -13,7 +13,7 @@ spec:
           commonUpdateSettings:
             updateStrategy: "digest"
             #updateStrategy: "newest-build"
-	  manifestTargets:
-	    helm:
-	      name: "image.repository"
-	      tag: "image.tag"
+          manifestTargets:
+            helm:
+              name: "image.repository"
+              tag: "image.tag"
