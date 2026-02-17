@@ -1,16 +1,14 @@
-# argocd-example-apps-sre/image-updater-cr.yaml
 apiVersion: argocd-image-updater.argoproj.io/v1alpha1
 kind: ImageUpdater
 metadata:
   name: devops-infra-updater
   namespace: argocd
 spec:
-  application:
-    name: argocd-image-updater  # The ArgoCD Application name that deploys your app
-  images:
-    - name: 236910733144.dkr.ecr.us-west-2.amazonaws.com/hearst-newspapers/devops-infra
-      updateStrategy:
-        type: latest
-      registryRef:
-        name: ecr-registry
-
+  namespace: argocd
+  applicationRefs:
+    - namePattern: "argocd-image-updater"
+      images:
+        - alias: "devops-infra"
+          imageName: "236910733144.dkr.ecr.us-west-2.amazonaws.com/hearst-newspapers/devops-infra:latest"
+          commonUpdateSettings:
+            updateStrategy: "latest"
