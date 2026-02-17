@@ -6,7 +6,7 @@ metadata:
 spec:
   namespace: argocd
   applicationRefs:
-    - namePattern: "argocd-image-updater"
+    - namePattern: "redirect-test"
       images:
         - alias: "devops-infra"
           imageName: "236910733144.dkr.ecr.us-west-2.amazonaws.com/hearst-newspapers/devops-infra:latest"
