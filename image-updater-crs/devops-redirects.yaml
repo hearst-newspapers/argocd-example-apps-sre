@@ -11,4 +11,4 @@ spec:
         - alias: "devops-infra"
           imageName: "236910733144.dkr.ecr.us-west-2.amazonaws.com/hearst-newspapers/devops-infra:latest"
           commonUpdateSettings:
-            updateStrategy: "latest"
+            updateStrategy: "newest-build"
