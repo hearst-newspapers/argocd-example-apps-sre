@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: image-updater-crs
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:hearst-newspapers/argocd-example-apps-sre.git
+    targetRevision: HEAD
+    path: image-updater-crs
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
